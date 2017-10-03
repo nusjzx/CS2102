@@ -8,4 +8,27 @@
       </h1>
     </section>
   </aside>
+
+  <span><%= link_to "New project",  new_project_path %></span>
+
+  <div class="col-md-8">
+    <% if @user.projects.any? %>
+      <h3>projects (<%= @user.projects.count %>)</h3>
+      <ol class="projects">
+        <%= render @projects %>
+      </ol>
+      <%= will_paginate @projects %>
+    <% end %>
+  </div>
+
+
+   <div class="col-md-8">
+    <% if @user.fund_records.any? %>
+      <h3>fund_records (<%= @user.fund_records.count %>)</h3>
+      <ol class="fund_records">
+        <%= render @fund_records %>
+      </ol>
+      <%= will_paginate @fund_records %>
+    <% end %>
+  </div>
 </div>
